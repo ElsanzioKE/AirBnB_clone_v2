@@ -1,30 +1,27 @@
 #!/usr/bin/python3
-# Starts a flask web application
-# / displays sth and /hbnb displays also
+"""Start Flask application"""
 
 from flask import Flask
-
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def hello_hbnb():
-    """Displays Hello HBNB!"""
-    return 'Hello HBNH!'
+def index():
+    """returns Hello HBNB!"""
+    return 'Hello HBNB!'
 
 
 @app.route('/hbnb', strict_slashes=False)
-def display_hbnb():
-    """Displays 'HBNB'"""
+def hbnb():
+    """returns HBNB"""
     return 'HBNB'
 
 
 @app.route('/c/<text>', strict_slashes=False)
-def c_text(text):
-    """Displays 'c' followed by value of <text>"""
-    text = text.replace('_', '')
-    return "c {}".format(text)
+def cisfun(text):
+    """display “C ” followed by the value of the text variable"""
+    return 'C ' + text.replace('_', ' ')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port='5000')
